@@ -2,10 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('components.index');
-})->name('main');
+// Route::get('/', function () {
+//     return view('components.index');
+// })->name('main');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::controller(App\Http\Controllers\HomeController::class)->group(function(){
+    Route::get('/', 'index')->name('index');
+    Route::get('/profile', 'profile')->name('profile')->middleware('auth');
+});

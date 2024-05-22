@@ -11,17 +11,7 @@
                         1fotice@gmail.com
                     </li>
                     <li class="mb-5">
-                        <a href="#!">
-                            ОБРАТНАЯ СВЯЗЬ
-                        </a>
-                    </li>
-                    <li class="mb-5">
-                        <a href="#!">
-                            ПОПУЛЯРНЫЕ ВОПРОСЫ
-                        </a>
-                    </li>
-                    <li class="mb-5">
-                        <a href="#!">
+                        <a href="https://t.me/hqltaev" target="_blank">
                             РАЗРАБОТЧИК
                         </a>
                     </li>

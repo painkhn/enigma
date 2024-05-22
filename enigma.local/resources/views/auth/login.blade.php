@@ -1,4 +1,7 @@
 @extends('layouts.auth')
+@section('title')
+    Вход
+@endsection
 
 @section('content')
         <!-- login block -->
@@ -29,11 +32,14 @@
                             </span>
                         @enderror
                     </div>
-                    <div class="submit text-center mb-5">
+                    <div class="submit text-center mb-3">
                         <input type="submit" value="ВОЙТИ" class="color-primary font-bold">
                     </div>
+                    <div class="text-center font-medium mb-5">
+                        <a href="{{ route('register') }}">Создать аккаунт</a>
+                    </div>
                     <div class="text-center font-medium">
-                        <a href="{{ route('main') }}">Вернуться на главную</a>
+                        <a href="{{ route('index') }}">Вернуться на главную</a>
                     </div>
                 </form>
             </div>

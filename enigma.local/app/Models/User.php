@@ -10,7 +10,9 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
-
+    public function themes(){
+        return $this->hasMany(Theme::class);
+    }
     /**
      * The attributes that are mass assignable.
      *

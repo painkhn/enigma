@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    Главная
+@endsection
 
 @section('content')
 <!-- тайтл -->
@@ -13,36 +16,14 @@
             </div>
             <div class="list">
                 <ul>
-                    <li>
-                        <a href="#!" class="flex items-center font-bold mb-5">
-                            <div class="line"></div>
-                            Комьюнити
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#!" class="flex items-center font-bold mb-5">
-                            <div class="line"></div>
-                            Киберспорт
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#!" class="flex items-center font-bold mb-5">
-                            <div class="line"></div>
-                            Разработка
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#!" class="flex items-center font-bold mb-5">
-                            <div class="line"></div>
-                            Торговля
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#!" class="flex items-center font-bold mb-5">
-                            <div class="line"></div>
-                            Блог
-                        </a>
-                    </li>
+                    @foreach ($categories as $category)
+                        <li>
+                            <a href="{{ $category->link }}" class="flex items-center font-bold mb-5">
+                                <div class="line"></div>
+                                {{ $category->name }}
+                            </a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
@@ -51,52 +32,12 @@
             <div class="list">
                 <ul>
                     <li>
-                        <a href="#!" class="flex items-center font-bold mb-5 font-lg">
-                            <div class="line"></div>
-                            MAJOR 2024 | НЕОЖИДАННАЯ ПОБЕДА NATUS VINSERE | КАК ЭТО БЫЛО?
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#!" class="flex items-center font-bold mb-5 font-lg">
-                            <div class="line"></div>
-                            ESL PRO LEAGUE | ЛУЧШИЕ МОМЕНТЫ ОТБОРНОГО ЭТАПА
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#!" class="flex items-center font-bold mb-5 font-lg">
-                            <div class="line"></div>
-                            m0NESY - НОВЫЙ s1mple? | ЛУЧШИЕ МОМЕНТЫ ИЛЬИ В ПОСЛЕДНИХ МАТЧАХ
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#!" class="flex items-center font-bold mb-5 font-lg">
-                            <div class="line"></div>
-                            STREAMERS BATTLE | ЛУЧШИЕ МОМЕНТЫ И ХАЙЛАЙТЫ
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#!" class="flex items-center font-bold mb-5 font-lg">
-                            <div class="line"></div>
-                            РЕАКЦИЯ ПРО ИГРОКОВ COUNTER-STRIKE 2 НА НОВОЕ ОБНОВЛЕНИЕ
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#!" class="flex items-center font-bold mb-5 font-lg">
-                            <div class="line"></div>
-                            ПЕРЕЙДЁТ ЛИ m0NESY В НОВУЮ КОМАНДУ? ОТВЕТ ИЛЬИ
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#!" class="flex items-center font-bold mb-5 font-lg">
-                            <div class="line"></div>
-                            NIKO ПОКАЗАЛ СВОИ НОВЫЕ ДЕВАЙСЫ
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#!" class="flex items-center font-bold mb-5 font-lg">
-                            <div class="line"></div>
-                            НОВЫЕ МОЛОДЫЕ ТАЛАНТЫ ИЗ РОССИИ | ИНТЕРВЬЮ
-                        </a>
+                        @foreach ($themes as $theme)
+                            <a href="{{ $theme->link }}" class="flex items-center font-bold mb-5 font-lg">
+                                <div class="line"></div>
+                                {{ $theme->name }}
+                            </a>
+                        @endforeach
                     </li>
                 </ul>
             </div>
