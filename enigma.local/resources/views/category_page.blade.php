@@ -16,21 +16,21 @@
             </div>
             <div class="list">
                 <ul>
-                    @foreach ($categories as $category)
-                    <li>
-                        <a href="{{ route('category_page', ['category' => $category->link]) }}" class="flex items-center font-bold mb-5">
-                            <div class="line"></div>
-                            {{ $category->name }}
-                        </a>
-                    </li>
+                    @foreach ($categories_list as $category_list)
+                        <li>
+                            <a href="{{ route('category_page', ['category' => $category_list->link]) }}" class="flex items-center font-bold mb-5">
+                                <div class="line"></div>
+                                {{ $category_list->name }}
+                            </a>
+                        </li>
                     @endforeach
                 </ul>
             </div>
         </div>
         <!-- контент блок -->
         <div class="content w-full bg-light-grey p-8 pt-5">
-            <div class="title color-primary mb-5 font-bold text-xl">
-                <h2>Все категории</h2>
+            <div class="title mb-5 font-bold text-xl color-primary">
+                <h2>{{ $categories->name }}</h2>
             </div>
             <div class="list">
                 <ul>

@@ -25,7 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         $category = Category::get();
-        $theme = Theme::get();
+        $theme = Theme::orderBy('created_at', 'DESC')->get();
         return view('components.index', ['categories'=>$category, 'themes'=>$theme]);
     }
 
@@ -38,5 +38,12 @@ class HomeController extends Controller
     {
         $category = Category::get();
         return view('theme_create', ['categories' => $category]);
+    }
+
+    public function category_page($category) {
+        $category_list = Category::get();
+        $category_info = Category::where('link', $category)->first();
+        $theme = Theme::where('category_id', $category_info->id)->orderBy('created_at', 'DESC')->get();
+        return view('category_page', ['categories'=> $category_info, 'themes'=>$theme, 'categories_list' => $category_list]);
     }
 }

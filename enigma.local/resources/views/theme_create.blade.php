@@ -38,6 +38,4 @@
     </form>
 </div>
 
-
-w-full bg-transparent border-2 pl-2 color-primary font-sm pt-3 pl-3
 @endsection
