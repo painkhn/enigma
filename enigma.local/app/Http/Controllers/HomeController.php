@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{Category, Theme};
+use App\Models\{Category, Theme, Theme_create};
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -32,5 +32,11 @@ class HomeController extends Controller
     public function profile()
     {
         return view('profile');
+    }
+
+    public function create()
+    {
+        $category = Category::get();
+        return view('theme_create', ['categories' => $category]);
     }
 }

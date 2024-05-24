@@ -30,7 +30,7 @@
                     <span>{{ Auth::user()->email }}</span>
                 </div>
                 <div class="themesby">
-                    <a href="#!">Темы от @kotboris</a>
+                    <a href="{{ route('theme_create') }}">Создать тему</a>
                 </div>
             </div>
             <div class="ml-auto">

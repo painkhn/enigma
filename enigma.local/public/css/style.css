@@ -10,6 +10,15 @@ input {
     font-family: "JetBrains Mono", monospace;
 }
 
+select {
+    outline: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid var(--primary-color);
+    padding-left: 8px;
+    font-family: "JetBrains Mono", monospace;
+}
+
 input[type=submit],
 input[type=button],
 button {
