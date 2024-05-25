@@ -20,7 +20,7 @@
                 <p>{{ $theme_info->content }}</p>
             </div>
             <div class="user_name mb-5 color-primary font-bold">
-                <a href="{{ route('profile') }}">{{ $user->name }}</a>
+                <a href="{{ route('profile', ['id', $theme_info->user_id]) }}">{{ $user->name }}</a>
             </div>
             <div class="date mb-5 text-xs color-primary font-bold">
                 <p>{{ date('d-m-Y', strtotime($theme_info->created_at)); }}</p>

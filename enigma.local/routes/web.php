@@ -10,7 +10,7 @@ Auth::routes();
 
 Route::controller(App\Http\Controllers\HomeController::class)->group(function(){
     Route::get('/', 'index')->name('index');
-    Route::get('/profile', 'profile')->name('profile')->middleware('auth');
+    Route::get('/profile/{id}', 'profile')->name('profile')->middleware('auth');
     Route::get('/theme_create', 'create')->name('theme_create');
     Route::get('/{category}', 'category_page')->name('category_page');
 });

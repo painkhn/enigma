@@ -8,16 +8,18 @@
         @auth
         <div class="login-btn">
             <div class="flex">
-                @if (Auth::user()->is_admin == TRUE)
-                    <!-- <p class="color-primary mr-2 font-bold"></p> -->
-                    <a href="{{ route('profile') }}" class="flex font-bold items-center">
+                <!-- @if (Auth::user()->is_admin == TRUE)
+                    <a href="{{ route('profile', ['id', Auth::user()->id]) }}" class="flex font-bold items-center">
                         Админ {{ Auth::user()->name }}
                     </a>
                 @else
-                    <a href="{{ route('profile') }}" class="flex font-bold items-center">
+                    <a href="{{ route('profile', ['id', Auth::user()->id]) }}" class="flex font-bold items-center">
                         {{ Auth::user()->name }}
                     </a>
-                @endif
+                @endif -->
+                <a href="{{ route('profile', ['id', Auth::user()->id]) }}" class="flex font-bold items-center">
+                   {{ Auth::user()->name }}
+                </a>
             </div>
         </div>
         @else

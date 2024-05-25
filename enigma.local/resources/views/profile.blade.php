@@ -12,37 +12,45 @@
         <div class="flex justify-between w-full">
             <div class="userinfo color-primary font-bold">
                 <div class="name text-xl mb-5">
-                    @<span>{{ Auth::user()->name }}</span>
+                    @<span>{{ $user->name }}</span>
                 </div>
-                @if (Auth::user()->age == NULL)
+                @if ($user->age == NULL)
                 <div class="age text-lg mb-3">
                     <span>Возраст: не указан</span>
                 </div>
                 @else
                 <div class="age text-lg mb-3">
-                    <span>Возраст: {{Auth::user()->age}}</span>
+                    <span>Возраст: {{ $user->age }}</span>
                 </div>
                 @endif
                 <div class="tglink text-lg mb-3">
                     <a href="#!">Telegram</a>
                 </div>
                 <div class="mail text-lg mb-5">
-                    <span>{{ Auth::user()->email }}</span>
+                    <span>{{ $user->email }}</span>
                 </div>
-                <div class="themesby">
-                    <a href="{{ route('theme_create') }}">Создать тему</a>
-                </div>
+                @if ($user->id == Auth::user()->id)
+                    <div class="create_theme">
+                        <a href="{{ route('theme_create') }}">Создать тему</a>
+                    </div>
+                @else
+                    <div class="themesby">
+                        <a href="#!">Темы от {{ $user->name }}</a>
+                    </div>
+                @endif
             </div>
             <div class="ml-auto">
-                <a class="font-bold flex content-center" href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-                    <img class="mr-1" src="{{ asset('img/logout-icon.svg') }}" alt="">
-                    {{ __('Выйти') }}
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                    @csrf
-                </form>
+                @if ($user->id == Auth::user()->id)
+                    <a class="font-bold flex content-center" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                        <img class="mr-1" src="{{ asset('img/logout-icon.svg') }}" alt="">
+                        {{ __('Выйти') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
+                    </form>
+                @endif
             </div>
         </div>
     </div>

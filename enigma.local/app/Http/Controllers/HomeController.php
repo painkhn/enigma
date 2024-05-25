@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{Category, Theme, Theme_create};
+use App\Models\{Category, Theme, Theme_create, User};
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -29,9 +29,10 @@ class HomeController extends Controller
         return view('components.index', ['categories'=>$category, 'themes'=>$theme]);
     }
 
-    public function profile()
+    public function profile($id)
     {
-        return view('profile');
+        $user = User::where('id', $id)->first();
+        return view('profile', ['user' => $user]);
     }
 
     public function create()
