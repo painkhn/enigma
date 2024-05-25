@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'root',
                 'email' => 'root@mail.ru',
                 'age' => 12,
+                'is_admin' => TRUE,
                 'password' => Hash::make('admin')
             ]);
             Category::factory()->create([
