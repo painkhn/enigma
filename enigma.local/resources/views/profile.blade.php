@@ -4,7 +4,7 @@
 <div class="color-primary text-center font-bold text-2xl mb-10">
     <h1>Enigma - лучший игровой форум</h1>
 </div>
-<div class="profile max-w-6xl w-full bg-light-grey p-5 mx-auto my-0 mb-32 min-h-825 p-8">
+<div class="profile max-w-6xl w-full bg-light-grey p-8 mx-auto my-0 mb-32 min-h-825">
     <div class="profile-info flex mb-8 w-full">
         <div class="avatar mr-8 w-full max-w-52">
             <img src="../img/avatar1.png" alt="" class="border-2 border-black rounded-md">
@@ -35,7 +35,7 @@
                     </div>
                 @else
                     <div class="themesby">
-                        <a href="#!">Темы от {{ $user->name }}</a>
+                        <a href="{{ route('user_themes', $user->id, Auth::user()->id) }}">Темы от {{ $user->name }}</a>
                     </div>
                 @endif
             </div>

@@ -29,6 +29,18 @@ class HomeController extends Controller
         return view('components.index', ['categories'=>$category, 'themes'=>$theme]);
     }
 
+    public function themes_by($id) 
+    {
+        // $category = Category::get();
+        $theme = Theme::where('user_id', $id)->get();
+        $user = User::where('id', $id)->first();
+        // $category = Category::get();
+        // $user = User::where('id', $id)->first();
+        // $theme = Theme::orderBy('created_at', 'DESC')->get();
+        return view('themes_by', ['themes'=>$theme]);
+
+    }
+
     public function profile($id)
     {
         $user = User::where('id', $id)->first();

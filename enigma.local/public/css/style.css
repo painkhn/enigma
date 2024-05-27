@@ -77,12 +77,12 @@ a:hover {
     height: auto;
 }
 
-.content .line {
+.big-line .line {
     height: 62px;
     margin-right: 20px;
 }
 
-.content .list a {
+.big-line .list a {
     font-size: 18px;
 }
 

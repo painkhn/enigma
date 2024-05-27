@@ -18,7 +18,7 @@ class ThemeController extends Controller
             'content' => $request->themeContent
         ]);
         $theme->save();
-        return redirect('profile');
+        return redirect()->route('profile', ['id' => $user]);
     }
     public function theme($theme_id) 
     {
