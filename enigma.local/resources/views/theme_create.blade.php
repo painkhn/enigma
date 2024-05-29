@@ -30,7 +30,7 @@
             <label class="color-primary font-sm">Контент</label>
         </div>
         <div class="mb-14">
-            <textarea type="text" name="themeContent" id="" class="w-full min-h-60 bg-transparent border-2 pl-2 color-primary font-sm pt-3 pl-3"></textarea>
+            <textarea type="text" name="themeContent" id="" class="w-full min-h-60 bg-transparent border-2 color-primary font-sm pt-3 pl-3"></textarea>
         </div>
         <div class="submit text-right">
             <input type="submit" value="ОПУБЛИКОВАТЬ" class="color-primary font-bold">

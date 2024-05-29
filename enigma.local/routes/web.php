@@ -2,10 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('components.index');
-// })->name('main');
-
 Auth::routes();
 
 Route::controller(App\Http\Controllers\HomeController::class)->group(function(){
@@ -16,6 +12,8 @@ Route::controller(App\Http\Controllers\HomeController::class)->group(function(){
     Route::get('/{category}', 'category_page')->name('category_page');
 });
 Route::controller(App\Http\Controllers\ThemeController::class)->group(function(){
-    Route::post('/new_theme', 'create_theme')->name('NewTheme')->middleware('auth'); #Мб перенести в контроллер
+    Route::post('/new_theme', 'create_theme')->name('NewTheme')->middleware('auth'); 
+    Route::post('/new_comment/{theme_id}', 'comment_create')->name('newComment')->middleware('auth');
+    Route::get('/delete_comment/{comment_id}', 'comment_delete')->name('deleteComment')->middleware('auth');
     Route::get('/theme/{theme_id}', 'theme')->name('theme');
 });

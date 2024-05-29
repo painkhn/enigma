@@ -13,6 +13,9 @@ class User extends Authenticatable
     public function themes(){
         return $this->hasMany(Theme::class);
     }
+    public function comment() {
+        return $this->hasMany(Comments::class);
+    }
     /**
      * The attributes that are mass assignable.
      *

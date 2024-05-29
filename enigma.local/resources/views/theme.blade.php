@@ -27,12 +27,37 @@
             </div>
             <hr class="w-full h-1 bg-primary mb-5">
             <div class="comment mb-5">
-                <div class="text-lg mb-2 color-primary font-bold">
-                    <span>@utkadima</span>
-                </div>
-                <div class="com-text text-lg color-primary font-bold">
-                    <span>да фэйзы сами себе проиграли, это не победа...</span>
-                </div>
+                <form method="POST" action="{{ route('newComment', ['theme_id' => $theme_info->id]) }}">
+                    @csrf
+                    <input name="comment" class="w-full h-14 px-4 border-2 bg-transparent color-primary mb-5" type="text" placeholder="Поделитесь своим мнением">
+                    <div class="submit">
+                        <input type="submit" value="Отправить" class="color-primary font-bold">
+                    </div>
+                </form>
+            </div>
+            <div class="comment mb-5">
+                @if (isset($comment) > 0)
+                    <ul>
+                        @foreach ($comment as $comm)
+                            <li class="mb-5">
+                                <div class="text-xl mb-1 color-primary font-bold">
+                                    @<a href="{{ route('profile', ['id' => $comm->user_id]) }}">{{ $comm->user->name }}</a>
+                                </div>
+                                <div class="com-text text-lg color-primary mb-4">
+                                    <span>{{ $comm->comment }}</span> 
+                                    <p class="text-xs font-normal mt-4">{{ date('d-m-Y', strtotime($comm->created_at)); }}</p>
+                                </div>
+                                @if ( Auth::user() and $comm->user->id == Auth::user()->id or Auth::user()->is_admin == TRUE)
+                                    <div class="delete" class="text-right">
+                                        <a href="{{ route('deleteComment', ['comment_id' => $comm->id]) }}">
+                                            <input type="button" class="color-primary font-bold" value="Удалить">
+                                        </a>
+                                    </div>
+                                @endif
+                            </li>
+                        @endforeach
+                    </ul>
+                @endif
             </div>
         </div>
     </div>

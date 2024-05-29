@@ -125,3 +125,11 @@ textarea {
     outline: none;
     border-color: var(--primary-color);
 }
+
+.delete a input {
+    transition: all .15s;
+}
+
+.delete a input:hover {
+    box-shadow: 0 2px 0 0 var(--primary-color);
+}
