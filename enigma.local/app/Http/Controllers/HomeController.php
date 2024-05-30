@@ -26,7 +26,7 @@ class HomeController extends Controller
     {
         $category = Category::get();
         $theme = Theme::orderBy('created_at', 'DESC')->get();
-        return view('components.index', ['categories'=>$category, 'themes'=>$theme]);
+        return view('index', ['categories'=>$category, 'themes'=>$theme]);
     }
 
     public function themes_by($id) 
@@ -58,5 +58,11 @@ class HomeController extends Controller
         $category_info = Category::where('link', $category)->first();
         $theme = Theme::where('category_id', $category_info->id)->orderBy('created_at', 'DESC')->get();
         return view('category_page', ['categories'=> $category_info, 'themes'=>$theme, 'categories_list' => $category_list]);
+    }
+
+    public function search(Request $request) {
+        $word = $request->word;
+        $theme_search = Theme::where('name', 'like', "%{$word}%")->orderBy('id')->get();
+        return view('index', ['categories' => Category::get(), 'themes' => $theme_search]);
     }
 }

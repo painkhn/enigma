@@ -133,3 +133,7 @@ textarea {
 .delete a input:hover {
     box-shadow: 0 2px 0 0 var(--primary-color);
 }
+
+.grid-3-auto {
+    grid-template-columns: repeat(auto-fit, 1fr);
+}

@@ -6,6 +6,7 @@ Auth::routes();
 
 Route::controller(App\Http\Controllers\HomeController::class)->group(function(){
     Route::get('/', 'index')->name('index');
+    Route::post('/search', 'search')->name('search');
     Route::get('/profile/{id}/themes', 'themes_by')->name('user_themes');
     Route::get('/profile/{id}', 'profile')->name('profile')->middleware('auth');
     Route::get('/theme_create', 'create')->name('theme_create');
