@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\{Category, Theme, Theme_create, User};
+use App\Http\Middleware\IsAdmin;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    // public function __construct() {
+    //     $this->middleware([IsAdmin::class]);
+    // }
     /**
      * Create a new controller instance.
      *
@@ -31,20 +35,17 @@ class HomeController extends Controller
 
     public function themes_by($id) 
     {
-        // $category = Category::get();
         $theme = Theme::where('user_id', $id)->get();
         $user = User::where('id', $id)->first();
-        // $category = Category::get();
-        // $user = User::where('id', $id)->first();
-        // $theme = Theme::orderBy('created_at', 'DESC')->get();
         return view('themes_by', ['themes'=>$theme]);
 
     }
 
     public function profile($id)
     {
+        $theme = Theme::where('user_id', $id)->get();
         $user = User::where('id', $id)->first();
-        return view('profile', ['user' => $user]);
+        return view('profile', ['user' => $user, 'themes' => $theme]);
     }
 
     public function create()

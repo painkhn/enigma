@@ -4,10 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\{Theme, Category, User, Comments};
+use App\Http\Middleware\IsAdmin;
 use Auth;
 
 class ThemeController extends Controller
 {
+    public function __construct() {
+        $this->middleware([IsAdmin::class]);
+    }
+    
     public function create_theme(Request $request) 
     {
         $user = Auth::user()->id;

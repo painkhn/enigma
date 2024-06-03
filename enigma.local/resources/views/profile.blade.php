@@ -55,34 +55,15 @@
         </div>
     </div>
     <hr class="w-full h-1 bg-primary mb-8">
-    <div class="comments color-primary font-bold">
-        <div class="title color-primary font-bold text-xl mb-8">
-            <h2>КОММЕНТАРИИ</h2>
-        </div>
-        <div class="comment mb-5">
-            <div class="name text-lg mb-2">
-                <span>@kotboris</span>
-            </div>
-            <div class="com-text text-lg">
-                <span>кот красавчик, работали недавно, вообще отличный пацан</span>
-            </div>
-        </div>
-        <div class="comment mb-5">
-            <div class="name text-lg mb-2">
-                <span>@utkadima</span>
-            </div>
-            <div class="com-text text-lg">
-                <span>это кот придумал арбузный дизайн?</span>
-            </div>
-        </div>
-        <div class="comment mb-5">
-            <div class="name text-lg mb-2">
-                <span>@gusenicasasha</span>
-            </div>
-            <div class="com-text text-lg">
-                <span>на моей странице есть тема с халявой!!!! переходи и забирай!!!</span>
-            </div>
-        </div>
+    <div class="list big-line">
+        <ul>
+            @foreach ($themes as $theme)
+                <a href="{{ route('theme', ['theme_id' => $theme->id]) }}" class="flex items-center font-bold mb-5 font-lg">
+                    <div class="line"></div>
+                    {{ $theme->name }}
+                </a>
+            @endforeach
+        </ul>
     </div>
 </div>
 @endsection
