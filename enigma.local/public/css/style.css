@@ -137,3 +137,23 @@ textarea {
 .grid-3-auto {
     grid-template-columns: repeat(auto-fit, 1fr);
 }
+
+.border-primary {
+    border-color: var(--primary-color);
+}
+
+.hovered {
+    transition: all .2s;
+}
+
+.hovered:hover {
+    background: var(--primary-color);
+}
+
+.hovered:hover span {
+    color: #fff;
+}
+
+.transition-2s {
+    transition: all .2s;
+}

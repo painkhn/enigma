@@ -1,4 +1,4 @@
-@extends('layouts.auth')
+@extends('layouts.app')
 
 @section('content')
 <div class="admin w-full h-screen flex items-center justify-center">

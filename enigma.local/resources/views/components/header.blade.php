@@ -17,6 +17,11 @@
         @auth
         <div class="login-btn justify-self-end place-self-center">
             <div class="flex">
+                @if (Auth::user()->is_admin == TRUE)
+                    <div class="mr-5 font-bold">
+                        <a href="{{ route('AdminPanel') }}">Админ панель</a>
+                    </div>
+                @endif
                 <a href="{{ route('profile', ['id' => Auth::user()->id]) }}" class="flex font-bold items-center"> {{ Auth::user()->name }} </a>
             </div>
         </div>

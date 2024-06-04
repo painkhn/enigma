@@ -6,8 +6,13 @@
 </div>
 <div class="profile max-w-6xl w-full bg-light-grey p-8 mx-auto my-0 mb-32 min-h-825">
     <div class="profile-info flex mb-8 w-full">
-        <div class="avatar mr-8 w-full max-w-52">
-            <img src="../img/avatar1.png" alt="" class="border-2 border-black rounded-md">
+        <!-- аватарка -->
+        <div class="mr-5">
+            @if (Auth::user()->avatar)
+                <img src="{{ asset(Auth::user()->avatar) }}" alt="User Avatar" class="border-2 border-black rounded-md max-w-52 h-52">
+            @else
+                <img src="{{ asset('img/avatar1.png') }}" alt="Default Avatar">
+            @endif
         </div>
         <div class="flex justify-between w-full">
             <div class="userinfo color-primary font-bold">
@@ -29,6 +34,16 @@
                 <div class="mail text-lg mb-5">
                     <span>{{ $user->email }}</span>
                 </div>
+                <!-- добавление аватарки -->
+                <form id="avatar-file-form" method="POST" enctype="multipart/form-data" action="{{ route('NewAvatar') }}" class="flex flex-col">
+                    @csrf
+                    @method('PATCH')
+
+                    <label class="flex items-center justify-center border-2 px-3 py-2 border-primary cursor-pointer mb-5 rounded-md hovered" for="avatar_change">
+                        <input class="hidden" type="file" name="avatar_change" id="avatar_change">
+                        <span class="text-base font-bold color-primary transition-2s">Сменить аватарку</span>
+                    </label>
+                </form>
                 @if ($user->id == Auth::user()->id)
                     <div class="create_theme">
                         <a href="{{ route('theme_create') }}">Создать тему</a>
@@ -66,4 +81,10 @@
         </ul>
     </div>
 </div>
+
+<script>
+        document.getElementById('avatar_change').addEventListener('change', function() {
+            document.getElementById('avatar-file-form').submit();
+        });
+    </script>
 @endsection

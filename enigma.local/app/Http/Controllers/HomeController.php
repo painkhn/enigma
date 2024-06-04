@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\{Category, Theme, Theme_create, User};
 use App\Http\Middleware\IsAdmin;
 use Illuminate\Http\Request;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -66,4 +67,27 @@ class HomeController extends Controller
         $theme_search = Theme::where('name', 'like', "%{$word}%")->orderBy('id')->get();
         return view('index', ['categories' => Category::get(), 'themes' => $theme_search]);
     }
+
+    public function updateAvatar(Request $request)
+    {
+        $validated = $request->validate([
+            'avatar_change' => 'required|image|mimes:jpg,png,jpeg|max:2048'
+        ]);
+        
+        $user = User::where('id', Auth::user()->id)->first();
+        $avatarPath = $user->avatar;
+        if (file_exists($avatarPath)) {
+            unlink($avatarPath);
+        }
+
+        $name = time(). ".". $request->file('avatar_change')->extension();
+        $destination = 'public/avatars';
+        $path = $request->file('avatar_change')->storeAs($destination, $name);
+        User::where('id', Auth::user()->id)->update([
+            'avatar' => 'storage/avatars/' . $name
+        ]);
+    
+        return redirect()->back();
+    }
+
 }

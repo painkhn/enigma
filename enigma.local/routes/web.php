@@ -15,6 +15,7 @@ Route::controller(App\Http\Controllers\HomeController::class)->group(function(){
     Route::post('/search', 'search')->name('search')->middleware([IsBan::class]);
     Route::get('/profile/{id}/themes', 'themes_by')->name('user_themes')->middleware([IsBan::class]);
     Route::get('/profile/{id}', 'profile')->name('profile')->middleware([IsBan::class, 'auth']);;
+    Route::patch('/new_avatar', 'updateAvatar')->name('NewAvatar')->middleware([IsBan::class, 'auth']);;
     Route::get('/theme_create', 'create')->name('theme_create')->middleware([IsBan::class]);
     Route::get('/{category}', 'category_page')->name('category_page')->middleware([IsBan::class]);
     Route::get('/ban', 'banned')->name('bannedUser')->middleware([IsBan::class]);

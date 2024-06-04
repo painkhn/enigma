@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('password');
             $table->boolean('is_admin')->default(FALSE);
             $table->boolean('is_ban')->default(FALSE);
+            $table->string('avatar')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
@@ -48,5 +49,8 @@ return new class extends Migration
         Schema::dropIfExists('users');
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('avatar');
+        });
     }
 };
