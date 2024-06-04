@@ -11,7 +11,7 @@
             @if (Auth::user()->avatar)
                 <img src="{{ asset(Auth::user()->avatar) }}" alt="User Avatar" class="border-2 border-black rounded-md max-w-52 h-52">
             @else
-                <img src="{{ asset('img/avatar1.png') }}" alt="Default Avatar">
+                <img src="{{ asset('img/avatar1.png') }}" alt="Default Avatar" class="border-2 border-black rounded-md max-w-52 h-52">
             @endif
         </div>
         <div class="flex justify-between w-full">
@@ -19,15 +19,6 @@
                 <div class="name text-xl mb-5">
                     @<span>{{ $user->name }}</span>
                 </div>
-                @if ($user->age == NULL)
-                <div class="age text-lg mb-3">
-                    <span>Возраст: не указан</span>
-                </div>
-                @else
-                <div class="age text-lg mb-3">
-                    <span>Возраст: {{ $user->age }}</span>
-                </div>
-                @endif
                 <div class="tglink text-lg mb-3">
                     <a href="#!">Telegram</a>
                 </div>

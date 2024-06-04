@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="admin w-full h-screen flex items-center justify-center">
+<div class="admin w-full h-main flex items-center justify-center">
     <div class="max-w-5xl w-full flex justify-between flex-wrap">
         <div class="search max-w-lg w-full justify-self-center place-self-center grow">
             <h2 class="font-bold text-2xl mb-10">ПАНЕЛЬ АДМИНИСТРАТОРА</h2>

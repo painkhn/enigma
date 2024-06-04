@@ -157,3 +157,7 @@ textarea {
 .transition-2s {
     transition: all .2s;
 }
+
+.h-main {
+    min-height: calc( 100vh - 328px );
+}
