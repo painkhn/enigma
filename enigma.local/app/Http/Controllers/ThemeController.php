@@ -9,9 +9,9 @@ use Auth;
 
 class ThemeController extends Controller
 {
-    public function __construct() {
-        $this->middleware([IsAdmin::class]);
-    }
+    // public function __construct() {
+    //     $this->middleware([IsAdmin::class]);
+    // }
     
     public function create_theme(Request $request) 
     {
