@@ -188,4 +188,32 @@ textarea {
         text-align: center;
         text-transform: uppercase;
     }
+
+    .profile-info {
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        text-align: center;
+    }
+
+    .userinfo {
+        margin: 0 auto;
+    }
+
+    .user_between {
+        flex-direction: column;
+    }
+
+    .logout {
+        margin: 20px auto 0;
+    }
+
+    .avatar {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    footer {
+        padding: 0 20px;
+    }
 }

@@ -7,34 +7,33 @@
 <div class="profile max-w-6xl w-full bg-light-grey p-8 mx-auto my-0 mb-32 min-h-825">
     <div class="profile-info flex mb-8 w-full">
         <!-- аватарка -->
-        <div class="mr-5">
+        <div class="avatar mr-5">
             @if (Auth::user()->avatar)
                 <img src="{{ asset(Auth::user()->avatar) }}" alt="User Avatar" class="border-2 border-black rounded-md max-w-52 h-52">
             @else
                 <img src="{{ asset('img/avatar1.png') }}" alt="Default Avatar" class="border-2 border-black rounded-md max-w-52 h-52">
             @endif
         </div>
-        <div class="flex justify-between w-full">
+        <div class="user_between flex justify-between w-full">
             <div class="userinfo color-primary font-bold">
                 <div class="name text-xl mb-5">
                     @<span>{{ $user->name }}</span>
-                </div>
-                <div class="tglink text-lg mb-3">
-                    <a href="#!">Telegram</a>
                 </div>
                 <div class="mail text-lg mb-5">
                     <span>{{ $user->email }}</span>
                 </div>
                 <!-- добавление аватарки -->
-                <form id="avatar-file-form" method="POST" enctype="multipart/form-data" action="{{ route('NewAvatar') }}" class="flex flex-col">
-                    @csrf
-                    @method('PATCH')
+                @if ($user->id == Auth::user()->id)
+                    <form id="avatar-file-form" method="POST" enctype="multipart/form-data" action="{{ route('NewAvatar') }}" class="flex flex-col">
+                        @csrf
+                        @method('PATCH')
 
-                    <label class="flex items-center justify-center border-2 px-3 py-2 border-primary cursor-pointer mb-5 rounded-md hovered" for="avatar_change">
-                        <input class="hidden" type="file" name="avatar_change" id="avatar_change">
-                        <span class="text-base font-bold color-primary transition-2s">Сменить аватарку</span>
-                    </label>
+                        <label class="flex items-center justify-center border-2 px-3 py-2 border-primary cursor-pointer mb-5 rounded-md hovered" for="avatar_change">
+                            <input class="hidden" type="file" name="avatar_change" id="avatar_change">
+                            <span class="text-base font-bold color-primary transition-2s">Сменить аватарку</span>
+                        </label>
                 </form>
+                @endif
                 @if ($user->id == Auth::user()->id)
                     <div class="create_theme">
                         <a href="{{ route('theme_create') }}">Создать тему</a>
@@ -45,7 +44,7 @@
                     </div>
                 @endif
             </div>
-            <div class="ml-auto">
+            <div class="logout ml-auto">
                 @if ($user->id == Auth::user()->id)
                     <a class="font-bold flex content-center" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
@@ -61,6 +60,9 @@
         </div>
     </div>
     <hr class="w-full h-1 bg-primary mb-8">
+    <div class="title color-primary font-bold text-lg mb-5">
+        <h2>ТЕМЫ ОТ @<span>{{ $user->name }}</span></h2>
+    </div>
     <div class="list big-line">
         <ul>
             @foreach ($themes as $theme)
