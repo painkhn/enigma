@@ -1,5 +1,5 @@
 <header class="bg-light-grey w-full h-auto shadow-xl mb-10">
-    <div class="max-w-6xl mx-auto my-0 min-h-20 grid grid-cols-3 auto-cols-auto">
+    <div class="header-cont max-w-6xl mx-auto my-0 min-h-20 grid grid-cols-3 auto-cols-auto">
         <div class="logo place-self-center justify-self-start">
             <a href="{{ route('index') }}">
                 <img src="{{ asset('/img/logo.png') }}" alt="">

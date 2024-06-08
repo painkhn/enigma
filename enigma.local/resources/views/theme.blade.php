@@ -44,7 +44,7 @@
                                     @<a href="{{ route('profile', ['id' => $comm->user_id]) }}">{{ $comm->user->name }}</a>
                                 </div>
                                 <div class="com-text text-lg color-primary mb-4">
-                                    <span>{{ $comm->comment }}</span> 
+                                    <span>{{ $comm->comment }}</span>
                                     <p class="text-xs font-normal mt-4">{{ date('d-m-Y', strtotime($comm->created_at)) }}</p>
                                 </div>
                                 @if ( Auth::user() and $comm->user->id == Auth::user()->id or Auth::user()->is_admin == TRUE)

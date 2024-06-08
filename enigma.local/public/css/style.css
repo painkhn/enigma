@@ -161,3 +161,31 @@ textarea {
 .h-main {
     min-height: calc( 100vh - 328px );
 }
+
+@media screen and (max-width: 600px) {
+    .header-cont {
+        display: flex;
+        flex-direction: column;
+        padding: 0 20px;
+    }
+
+    .category {
+        min-height: 0;
+        max-width: 100%;
+    }
+
+    .main-content {
+        flex-direction: column;
+    }
+
+    .content {
+        min-height: 0;
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .content .title {
+        text-align: center;
+        text-transform: uppercase;
+    }
+}
