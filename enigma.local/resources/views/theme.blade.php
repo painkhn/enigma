@@ -23,7 +23,7 @@
                 <a href="{{ route('profile', ['id' => $theme_info->user_id]) }}">{{ $user->name }}</a>
             </div>
             <div class="date mb-5 text-xs color-primary font-bold">
-                <p>{{ date('d-m-Y', strtotime($theme_info->created_at)); }}</p>
+                <p>{{ date('d-m-Y', strtotime($theme_info->created_at)) }}</p>
             </div>
             <hr class="w-full h-1 bg-primary mb-5">
             <div class="comment mb-5">
@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="com-text text-lg color-primary mb-4">
                                     <span>{{ $comm->comment }}</span> 
-                                    <p class="text-xs font-normal mt-4">{{ date('d-m-Y', strtotime($comm->created_at)); }}</p>
+                                    <p class="text-xs font-normal mt-4">{{ date('d-m-Y', strtotime($comm->created_at)) }}</p>
                                 </div>
                                 @if ( Auth::user() and $comm->user->id == Auth::user()->id or Auth::user()->is_admin == TRUE)
                                     <div class="delete" class="text-right">
