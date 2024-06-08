@@ -162,11 +162,19 @@ textarea {
     min-height: calc( 100vh - 328px );
 }
 
+@media screen and (max-width: 1100px) {
+    
+}
+
 @media screen and (max-width: 600px) {
     .header-cont {
         display: flex;
         flex-direction: column;
-        padding: 0 20px;
+        padding: 20px;
+    }
+
+    .search {
+        margin: 20px 0;
     }
 
     .category {
