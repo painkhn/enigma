@@ -9,7 +9,7 @@
                 @csrf
                 <input class="border-0 border-b-2 max-w-sm w-full h-10 px-4" type="search" name="user_prefix" id="">
                 <button class="w-7 h-7">
-                    <img class="w-7 ml-2" src="../img/search-icon.svg" alt="">
+                    <img class="w-7 ml-2" src="{{ asset('img/search-icon.svg') }}" alt="">
                 </button>
             </form>
         </div>

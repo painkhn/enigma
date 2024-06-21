@@ -2,7 +2,7 @@
     <div class="footer-content min-h-52 max-w-6xl my-0 mx-auto flex justify-between">
         <div class="logo">
             <a href="../index.html">
-                <img src="../img/logo.png" alt="">
+                <img src="{{ asset('img/logo.png') }}" alt="">
             </a>
         </div>
         <div>
